@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wish List{% endblock %}
+
+{% block body %}
+
+<main class="container mt-5 mb-5" role="main">
+    <div class="example-wrapper mt-5 mb-5 text-center">
+        <div class="card border-secondary mb-3 example-wrapper" style="max-width: 25rem;">
+            <div class="card-header text-secondary"><strong>{{ wish.title }}</strong></div>
+            <div class="card-body">
+                <h4 class="card-title text-primary">Catégorie</h4>
+                <p class="card-text">{{ wish.category.name }}</p>
+                <h4 class="card-title text-primary">Description</h4>
+                <p class="card-text">{{ wish.description }}</p>
+                <h4 class="card-title text-primary">Auteur</h4>
+                <p class="card-text">{{ wish.author }}</p>
+                <h4 class="card-title text-primary">Crée le</h4>
+                <p class="card-text">{{ wish.dateCreated|date("d/m/Y") }}</p>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

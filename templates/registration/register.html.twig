@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <main class="container mt-5 mb-5" role="main">
+        <div class="example-wrapper mt-5 mb-5 text-center">
+            <h1 class="mb-5">Devenir un rêveur</h1>
+            <div>
+                {{ form_start(registrationForm) }}
+                    {{ form_row(registrationForm.email) }}
+                    {{ form_row(registrationForm.pseudo) }}
+                    {{ form_row(registrationForm.plainPassword, {
+                        label: 'Password'
+                    }) }}
+                    {{ form_row(registrationForm.agreeTerms) }}    
+                    {{ form_errors(registrationForm) }}
+                    {{ form_widget(registrationForm) }}
+
+                    <button type="submit" class="btn btn-secondary mt-3">C'est parti !</button>
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+    </main>        
+{% endblock %}

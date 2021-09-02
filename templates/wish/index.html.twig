@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wish List{% endblock %}
+
+{% block body %}
+
+<main class="container mt-5 mb-5" role="main">
+    <div class="example-wrapper mt-5 mb-5 col-12 row">
+        <h1 class="mb-5 text-center ">Liste des wishes</h1>     
+        <ul>
+            {% for wish in wishes %}
+            <table class="table table-hover">
+            <tbody>
+                <tr class="table-active">
+                <th class="col-4">Wish n° {{ wish.id }}</th>
+                <td class="col-8">{{ wish.title }}</td>
+                <td class="col-1"><a type="button" href="{{ path('wish_detail', {id: wish.id}) }}"><i class="bi bi-search"></i></a></td>
+                {% if app.user %}
+                    <td class="col-1"><a href="{{ path('wish_edit', {id: wish.id}) }}"><i class="bi bi-pencil-fill"></i></a></td>
+                    <td class="col-1"><a href="{{ path('wish_delete', {id: wish.id}) }}" onclick="return confirm('Voulez-vous vraiment supprimer ce wish ?')"><i class="bi bi-trash-fill"></i></a></td>
+                {% endif %}
+                </tr>
+            </tbody>
+        </table>   
+            {% endfor %}
+        </ul>
+        {% if app.user %}
+            <a class="nav-link text-center " href="{{ path('wish_new') }}"><button type="button" class="btn btn-secondary btn-lg mt-5">Ajouter un wish</button></a>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

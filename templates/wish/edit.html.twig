@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wish List{% endblock %}
+
+{% block body %}
+
+<main class="container mt-5 mb-5" role="main">
+    <div class="example-wrapper mt-5 mb-5 text-center">
+        <h1 class="mb-5">Change Wish</h1>
+        <div>
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-secondary mt-3">Transform that wish !</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</main>
+{% endblock %}

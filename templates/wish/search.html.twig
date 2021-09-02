@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wish List{% endblock %}
+
+{% block body %}
+
+<main class="container mt-5 mb-5" role="main">
+    <div class="example-wrapper mt-5 mb-5 text-center">
+        <h1 class="mb-5">Liste des wishes</h1>
+        <ul>
+            {% for wish in wishes %}
+                    <li><a href="{{ path('wish_search', {keyword: wish.title}) }}">{{ wish.title }}</a></li>
+            {% endfor %}
+        </ul>
+        <a class="nav-link" href="{{ path('wish_new') }}"><button type="button" class="btn btn-secondary btn-lg mt-5">Ajouter un wish</button></a>
+    </div>
+</main>
+{% endblock %}
